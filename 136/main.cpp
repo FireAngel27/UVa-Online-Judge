@@ -1,40 +1,38 @@
 // UVa 136 - Ugly Numbers
 
 #include <iostream>
-#include <set>
+#include <algorithm>
+#include <vector>
 
 int main()
 {
-    int count = 0;
-    int factors[3] = {2, 3, 5};
-    unsigned long num;
-    std::set<unsigned long> ugly_seq;
-    std::set<unsigned long>::iterator it;
-
-    ugly_seq.insert(1);
-    ++count;
-
-    while (count < 1500) {
-        for (unsigned long i : ugly_seq) {
-            for (int j = 0; j < 3; ++j) {
-                num = i * factors[j];
-
-                // if number isn't in set
-                if (ugly_seq.find(num) == ugly_seq.end()) {
-                    ugly_seq.insert(num);
-                    ++count;
-                }
-            }
-        }
-    }
-
+    int n = 0;
     int i = 0;
-    for (it = ugly_seq.begin(); it != ugly_seq.end(), i < 1500; ++it) {
-        ++i;
-        //std::cout << i++ << ".\t" << *it << std::endl;
-    }
-    std::cout << "The 1500'th ugly number is " << *it << std::endl;
+    int j = 0;
+    int k = 0;
+    unsigned long x2, x3, x5;
+    std::vector<unsigned long> ugly_nums;
 
+    ugly_nums.push_back(1);
+    x2 = 2 * ugly_nums[i];
+    x3 = 3 * ugly_nums[j];
+    x5 = 5 * ugly_nums[k];
+
+    while (n < 1500) {
+        ugly_nums.push_back(std::min(x2, std::min(x3, x5)));
+        ++n;
+
+        if (x2 == ugly_nums[n])
+            x2 = 2 * ugly_nums[++i];
+
+        if (x3 == ugly_nums[n])
+            x3 = 3 * ugly_nums[++j];
+
+        if (x5 == ugly_nums[n])
+            x5 = 5 * ugly_nums[++k];
+    }
+
+    std::cout << "The 1500'th ugly number is " << ugly_nums[1499] << std::endl;
 
     return 0;
 }
