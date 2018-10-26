@@ -32,7 +32,7 @@ int main()
             x5 = 5 * ugly_nums[++k];
     }
 
-    std::cout << "The 1500'th ugly number is " << ugly_nums[1499] << std::endl;
+    std::cout << "The 1500'th ugly number is " << ugly_nums[1499] << ".\n";
 
     return 0;
 }
