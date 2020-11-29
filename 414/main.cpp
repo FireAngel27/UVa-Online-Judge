@@ -14,8 +14,8 @@ int main() {
         for (int i = 0; i < n; ++i) {
             std::string line;
             std::getline(std::cin, line);
-            spaces[i] = 0;
 
+            spaces[i] = 0;
             for (char c : line) {
                 if (std::isspace(c)) {
                     ++spaces[i];
@@ -32,7 +32,7 @@ int main() {
 
         std::cout << rem_spaces << std::endl;
 
-        delete [] spaces;
+        delete[] spaces;
     }
 
     return 0;
