@@ -10,6 +10,7 @@ add_executable(136 136/main.cpp)
 
 add_executable(414 414/main.cpp 414/main.cpp)
 add_executable(458 458/main.cpp)
+add_executable(490 490/main.cpp)
 add_executable(494 494/main.cpp)
 
 add_executable(10038 10038/main.cpp)
